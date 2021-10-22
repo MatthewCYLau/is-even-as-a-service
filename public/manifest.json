@@ -1,6 +1,6 @@
 {
-  "short_name": "Starter App",
-  "name": "React Material UI Starter Application",
+  "short_name": "React Redux TypeScript App",
+  "name": "React Redux TypeScript App",
   "icons": [
     {
       "src": "favicon.ico",

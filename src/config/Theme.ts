@@ -16,7 +16,6 @@ export default (darkMode: boolean) => {
         text: {
             secondary: 'rgba(0, 0, 0, 0.56)'
         },
-    
         type: darkMode ? 'dark' : 'light'
     });
 
