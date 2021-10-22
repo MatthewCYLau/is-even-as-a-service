@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Container, Link, Typography } from '@material-ui/core';
-import routingImage from '../../images/routing.svg';
+import routingImage from '../../assets/routing.svg';
 import useStyles from './RoutingPage.style';
 
 const UNSUPPORTED_ROUTE = '/unknown';

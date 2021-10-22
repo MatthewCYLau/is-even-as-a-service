@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core';
-import errorImage from '../../images/error.svg';
+import errorImage from '../../assets/error.svg';
 import useStyles from './NotFoundPage.style';
 
 const NotFoundPage = () => {

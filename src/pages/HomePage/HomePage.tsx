@@ -9,7 +9,7 @@ import SpeedIcon from '@material-ui/icons/Speed';
 import BrushIcon from '@material-ui/icons/Brush';
 import AspectRatioIcon from '@material-ui/icons/AspectRatio';
 import BrightnessIcon from '@material-ui/icons/Brightness4';
-import sampleImage from '../../images/home.svg';
+import sampleImage from '../../assets/home.svg';
 import useStyles from './HomePage.style';
 
 type Section = {
