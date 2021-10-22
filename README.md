@@ -2,11 +2,11 @@
 
 A reference project to build, and deploy a React Redux app in TypeScript
 
-## Run/build locally
+## Build/Run Locally
 
 ```bash
-npm i
-npm start
+npm i # installs node dependencies
+npm start # visits app at http://localhost:3000
 ```
 
 ## Linting
