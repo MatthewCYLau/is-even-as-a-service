@@ -5,13 +5,13 @@ import responsiveFontSizes from '@material-ui/core/styles/responsiveFontSizes';
 export default (darkMode: boolean) => {
     const palette = createPalette({
         primary: {
-            main: '#86BC25',
-            light: '#C4D600',
+            main: '#FF7E39',
+            light: '#F9D5A7',
             contrastText: '#fff'
         },
         secondary: {
-            main: '#00A3E0',
-            light: '#62B5E5',
+            main: '#90AACB',
+            light: '#FEF1E6',
         },
         text: {
             secondary: 'rgba(0, 0, 0, 0.56)'
