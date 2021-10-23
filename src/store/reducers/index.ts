@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import repositoriesReducer from './repositoriesReducer';
-import userReducer from './userReducer';
+import isEvenReducer from './isEvenReducer';
 
 const reducers = combineReducers({
-    repositories: repositoriesReducer,
-    user: userReducer
+    isEvenState: isEvenReducer,
 });
 
 export default reducers;

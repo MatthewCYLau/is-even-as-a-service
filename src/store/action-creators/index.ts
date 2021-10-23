@@ -1,55 +1,26 @@
-import axios from 'axios';
 import { Dispatch } from 'redux';
-import { ActionType, UserActionType } from '../action-types';
-import { Action, UserAction } from '../actions';
+import { ActionType } from '../action-types';
+import { Actions } from '../actions';
 
-export const searchRepositories = (term: string) => async (dispatch: Dispatch<Action>) => {
+export const calculateIsEven = (inputNumber: number) => async (dispatch: Dispatch<Actions>) => {
     dispatch({
-        type: ActionType.SEARCH_REPOSITORIES
+        type: ActionType.CALCULATER_ISEVEN,
+        payload: {
+            input: inputNumber
+        }
     });
 
     try {
-        const { data } : any = await axios.get(
-            'https://registry.npmjs.org/-/v1/search',
-            {
-                params: {
-                    text: term
-                }
-            }
-        );
-        const names = data.objects.map((result: any) => result.package.name);
+        const isEven = inputNumber % 2 === 0;
         dispatch({
-            type: ActionType.SEARCH_REPOSITORIES_SUCCESS,
-            payload: names
-        });
-    } catch (err) {
-        dispatch({
-            type: ActionType.SEARCH_REPOSITORIES_ERROR,
-            payload: err.message
-        });
-    }
-};
-
-export const searchUser = (userId: string = '1') => async (dispatch: Dispatch<UserAction>) => {
-    dispatch({
-        type: UserActionType.SEARCH_USER
-    });
-
-    try {
-        const { data } : any = await axios.get(
-            `https://jsonplaceholder.typicode.com/users/${userId}`
-        );
-        dispatch({
-            type: UserActionType.SEARCH_USER_SUCCESS,
+            type: ActionType.CALCULATER_ISEVEN_SUCCESS,
             payload: {
-                name: data.name,
-                username: data.username,
-                email: data.email
+                isEven
             }
         });
     } catch (err) {
         dispatch({
-            type: UserActionType.SEARCH_USER_ERROR,
+            type: ActionType.CALCULATER_ISEVEN_ERROR,
             payload: err.message
         });
     }

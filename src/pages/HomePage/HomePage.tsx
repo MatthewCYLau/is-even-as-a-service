@@ -5,13 +5,11 @@ import {
     Link,
     Typography,
 } from '@material-ui/core';
-import SpeedIcon from '@material-ui/icons/Speed';
-import sampleImage from '../../assets/home.svg';
+import sampleImage from '../../assets/calculator.png';
 import useStyles from './HomePage.style';
 
 type Section = {
     key: string;
-    icon: React.ReactNode;
     html: React.ReactNode;
 };
 
@@ -21,7 +19,6 @@ const HomePage = () => {
     const sections: Section[] = [
         {
             key: 'welcome',
-            icon: <SpeedIcon className={styles.icon} color="primary" />,
             html: (
                 <Typography>
                     {'Is-Even As A Service - because '}
@@ -45,7 +42,7 @@ const HomePage = () => {
                 <img className={styles.image} src={sampleImage} alt="Sample" />
                 <Grid container spacing={3}>
                     {
-                        sections.map(({ icon, html, key }) => (
+                        sections.map(({ html, key }) => (
                             <Grid
                                 key={key}
                                 item
@@ -54,7 +51,6 @@ const HomePage = () => {
                                 md={12}
                                 className={styles.paragraph}
                             >
-                                {icon}
                                 {html}
                             </Grid>
                         ))
