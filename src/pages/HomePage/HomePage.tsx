@@ -65,7 +65,7 @@ const HomePage: React.FunctionComponent<RouteComponentProps> = ({
             fullWidth
             id="inputNumber"
             name="inputNumber"
-            label="Is this number even?"
+            label="Is this an even number?"
             value={formik.values.inputNumber}
             onChange={formik.handleChange}
             className={styles.textField}
