@@ -15,6 +15,7 @@
   "rules": {
     "react/destructuring-assignment": "off",
     "react/jsx-indent-props": ["warn", 4],
+    "import/prefer-default-export": "off",
     "react/jsx-indent": [
       "warn",
       4,
