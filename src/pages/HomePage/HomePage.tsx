@@ -1,6 +1,13 @@
 import React from "react";
-import { Container, Grid, Link, Typography } from "@material-ui/core";
-import { Formik, Form, Field } from "formik";
+import {
+  Container,
+  Grid,
+  Link,
+  Typography,
+  Button,
+  TextField,
+} from "@material-ui/core";
+import { useFormik } from "formik";
 // import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from "../../hooks/useActions";
 import sampleImage from "../../assets/calculator.png";
@@ -18,6 +25,16 @@ interface FormValues {
 const HomePage = () => {
   const styles = useStyles();
   const { calculateIsEven } = useActions();
+
+  const initialValues: FormValues = { inputNumber: 0 };
+
+  const formik = useFormik({
+    initialValues,
+    onSubmit: (values, actions) => {
+      calculateIsEven(values.inputNumber);
+      actions.setSubmitting(false);
+    },
+  });
 
   const sections: Section[] = [
     {
@@ -37,9 +54,27 @@ const HomePage = () => {
         </Typography>
       ),
     },
+    {
+      key: "form",
+      html: (
+        <form onSubmit={formik.handleSubmit}>
+          <TextField
+            fullWidth
+            id="inputNumber"
+            name="inputNumber"
+            label="Is this number even?"
+            value={formik.values.inputNumber}
+            onChange={formik.handleChange}
+            className={styles.textField}
+            type="number"
+          />
+          <Button color="primary" variant="contained" fullWidth type="submit">
+            Submit
+          </Button>
+        </form>
+      ),
+    },
   ];
-
-  const initialValues: FormValues = { inputNumber: 0 };
 
   return (
     <Container component="main" maxWidth="lg" className={styles.root}>
@@ -59,19 +94,6 @@ const HomePage = () => {
             </Grid>
           ))}
         </Grid>
-        <Formik
-          initialValues={initialValues}
-          onSubmit={(values, actions) => {
-            calculateIsEven(values.inputNumber);
-            actions.setSubmitting(false);
-          }}
-        >
-          <Form>
-            <label htmlFor="inputNumber">Is this number even?</label>
-            <Field id="inputNumber" name="inputNumber" placeholder="0" />
-            <button type="submit">Submit</button>
-          </Form>
-        </Formik>
       </div>
     </Container>
   );
