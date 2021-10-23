@@ -14,7 +14,7 @@ const Header: React.FunctionComponent = () => {
         <AppBar component="header" position="static">
             <Toolbar>
                 <Typography variant="h6" component="h1" className={styles.title}>
-                    React | Material UI
+                    Is-Even as a Service
                 </Typography>
                 <Button
                     component={Link}
@@ -30,9 +30,9 @@ const Header: React.FunctionComponent = () => {
                     variant="contained"
                     color="primary"
                     disableElevation
-                    to="/routing"
+                    to="/results"
                 >
-                    Routing
+                    Results
                 </Button>
             </Toolbar>
         </AppBar>
