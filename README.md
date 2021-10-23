@@ -1,15 +1,17 @@
-# React Redux TypeScript
+# Is-Even as a Service
 
 A reference project to build, and deploy a React Redux app in TypeScript
 
-## Local Development
+An app which returns whether a number is even, or odd
+
+## Local development
 
 ```bash
 npm i # install node dependencies
 npm start # visit app at http://localhost:3000
 ```
 
-## Build/Run Locally via Docker
+## Build/Run locally with Docker
 
 ```bash
 docker build -t iseven-as-a-service . # build Docker image for app

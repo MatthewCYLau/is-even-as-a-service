@@ -5,6 +5,13 @@ import {
     Link,
     Typography,
 } from '@material-ui/core';
+import {
+    Formik,
+    Form,
+    Field,
+  } from 'formik';
+// import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useActions } from '../../hooks/useActions';
 import sampleImage from '../../assets/calculator.png';
 import useStyles from './HomePage.style';
 
@@ -13,8 +20,13 @@ type Section = {
     html: React.ReactNode;
 };
 
+interface FormValues {
+    inputNumber: number;
+}
+
 const HomePage = () => {
     const styles = useStyles();
+    const { calculateIsEven } = useActions();
 
     const sections: Section[] = [
         {
@@ -36,6 +48,8 @@ const HomePage = () => {
         }
     ];
 
+    const initialValues: FormValues = { inputNumber: 0 };
+
     return (
         <Container component="main" maxWidth="lg" className={styles.root}>
             <div className={styles.content}>
@@ -56,6 +70,19 @@ const HomePage = () => {
                         ))
                     }
                 </Grid>
+                <Formik
+                    initialValues={initialValues}
+                    onSubmit={(values, actions) => {
+                        calculateIsEven(values.inputNumber);
+                        actions.setSubmitting(false);
+                    }}
+                >
+                    <Form>
+                    <label htmlFor="inputNumber">Is this number even?</label>
+                    <Field id="inputNumber" name="inputNumber" placeholder="0" />
+                    <button type="submit">Submit</button>
+                    </Form>
+                </Formik>
             </div>
         </Container>
     );
