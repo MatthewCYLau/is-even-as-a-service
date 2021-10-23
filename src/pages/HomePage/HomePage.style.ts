@@ -1,7 +1,7 @@
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(
-  ({ spacing, breakpoints }) =>
+  ({ spacing, breakpoints, palette }) =>
     createStyles({
       root: {
         flex: 1,
@@ -47,8 +47,7 @@ export default makeStyles(
       },
       textField: {
         "& .MuiFormLabel-root": {
-          color: "white",
-          paddingBottom: spacing(1),
+          color: palette.text.primary,
         },
       },
     }),
