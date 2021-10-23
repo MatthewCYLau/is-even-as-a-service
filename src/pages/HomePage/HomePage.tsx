@@ -1,3 +1,4 @@
+import { RouteComponentProps } from "react-router-dom";
 import React from "react";
 import {
   Container,
@@ -8,7 +9,6 @@ import {
   TextField,
 } from "@material-ui/core";
 import { useFormik } from "formik";
-// import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from "../../hooks/useActions";
 import sampleImage from "../../assets/calculator.png";
 import useStyles from "./HomePage.style";
@@ -22,7 +22,9 @@ interface FormValues {
   inputNumber: number;
 }
 
-const HomePage = () => {
+const HomePage: React.FunctionComponent<RouteComponentProps> = ({
+  history,
+}) => {
   const styles = useStyles();
   const { calculateIsEven } = useActions();
 
@@ -33,6 +35,7 @@ const HomePage = () => {
     onSubmit: (values, actions) => {
       calculateIsEven(values.inputNumber);
       actions.setSubmitting(false);
+      history.push("/results");
     },
   });
 
