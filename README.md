@@ -2,11 +2,18 @@
 
 A reference project to build, and deploy a React Redux app in TypeScript
 
-## Build/Run Locally
+## Local Development
 
 ```bash
-npm i # installs node dependencies
-npm start # visits app at http://localhost:3000
+npm i # install node dependencies
+npm start # visit app at http://localhost:3000
+```
+
+## Build/Run Locally via Docker
+
+```bash
+docker build -t iseven-as-a-service . # build Docker image for app
+docker run -p 3000:8080 iseven-as-a-service # visit app at http://localhost:3000
 ```
 
 ## Linting
