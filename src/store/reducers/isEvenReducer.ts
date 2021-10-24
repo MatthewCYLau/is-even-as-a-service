@@ -4,15 +4,15 @@ import { ActionType } from "../action-types";
 interface CounterState {
   loading: boolean;
   error: string | null;
-  processedNumbers: number[];
-  currentNumberIsEven: boolean;
+  inputs: string[];
+  isEven: boolean;
 }
 
 const initialState = {
   loading: false,
   error: null,
-  processedNumbers: [],
-  currentNumberIsEven: false,
+  inputs: [],
+  isEven: false,
 };
 
 const reducer = (
@@ -23,7 +23,7 @@ const reducer = (
     case ActionType.CALCULATE_ISEVEN:
       return {
         ...state,
-        processedNumbers: [...state.processedNumbers, action.payload.input],
+        inputs: [...state.inputs, action.payload.input],
         loading: true,
         error: null,
       };
@@ -32,7 +32,7 @@ const reducer = (
         ...state,
         loading: false,
         error: null,
-        currentNumberIsEven: action.payload.isEven,
+        isEven: action.payload.isEven,
       };
     case ActionType.CALCULATE_ISEVEN_ERROR:
       return { ...state, loading: false, error: action.payload.error };

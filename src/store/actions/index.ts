@@ -3,7 +3,7 @@ import { ActionType } from "../action-types";
 interface CalculateIsEvenAction {
   type: ActionType.CALCULATE_ISEVEN;
   payload: {
-    input: number;
+    input: string;
   };
 }
 

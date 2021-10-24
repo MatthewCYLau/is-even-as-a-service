@@ -19,7 +19,7 @@ type Section = {
 };
 
 interface FormValues {
-  inputNumber: number;
+  input: string;
 }
 
 const HomePage: React.FunctionComponent<RouteComponentProps> = ({
@@ -28,12 +28,12 @@ const HomePage: React.FunctionComponent<RouteComponentProps> = ({
   const styles = useStyles();
   const { calculateIsEven } = useActions();
 
-  const initialValues: FormValues = { inputNumber: 0 };
+  const initialValues: FormValues = { input: "" };
 
   const formik = useFormik({
     initialValues,
     onSubmit: (values, actions) => {
-      calculateIsEven(values.inputNumber);
+      calculateIsEven(values.input);
       actions.setSubmitting(false);
       history.push("/results");
     },
@@ -63,13 +63,12 @@ const HomePage: React.FunctionComponent<RouteComponentProps> = ({
         <form onSubmit={formik.handleSubmit}>
           <TextField
             fullWidth
-            id="inputNumber"
-            name="inputNumber"
+            id="input"
+            name="input"
             label="Is this an even number?"
-            value={formik.values.inputNumber}
+            value={formik.values.input}
             onChange={formik.handleChange}
             className={styles.textField}
-            type="number"
           />
           <Button color="primary" variant="contained" fullWidth type="submit">
             Submit

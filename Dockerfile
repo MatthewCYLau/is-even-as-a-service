@@ -1,8 +1,12 @@
 # Reactg build environment
-FROM node:10 AS react-build
+FROM node:lts as react-build
 WORKDIR /app
-COPY . .
-RUN npm install && npm run build
+COPY package*.json ./
+RUN npm ci
+COPY tsconfig.json tsconfig.json
+COPY public public
+COPY src src
+RUN npm run build
 
 # server environment
 FROM nginx:alpine

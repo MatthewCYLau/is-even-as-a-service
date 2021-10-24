@@ -3,22 +3,31 @@ import { ActionType } from "../action-types";
 import { Actions } from "../actions";
 
 export const calculateIsEven =
-  (inputNumber: number) => async (dispatch: Dispatch<Actions>) => {
+  (input: string) => async (dispatch: Dispatch<Actions>) => {
     dispatch({
       type: ActionType.CALCULATE_ISEVEN,
       payload: {
-        input: inputNumber,
+        input,
       },
     });
 
     try {
-      const isEven = inputNumber % 2 === 0;
-      dispatch({
-        type: ActionType.CALCULATE_ISEVEN_SUCCESS,
-        payload: {
-          isEven,
-        },
-      });
+      if (input != null && input !== "" && !isNaN(Number(input.toString()))) {
+        const isEven = parseInt(input, 10) % 2 === 0;
+        dispatch({
+          type: ActionType.CALCULATE_ISEVEN_SUCCESS,
+          payload: {
+            isEven,
+          },
+        });
+      } else {
+        dispatch({
+          type: ActionType.CALCULATE_ISEVEN_ERROR,
+          payload: {
+            error: "Input is not an integer",
+          },
+        });
+      }
     } catch (err) {
       dispatch({
         type: ActionType.CALCULATE_ISEVEN_ERROR,
