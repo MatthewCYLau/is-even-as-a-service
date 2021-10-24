@@ -2,7 +2,7 @@
 
 A reference project to build a React Redux app in TypeScript, and deploy to GCP Cloud Run
 
-An app which returns whether a number is even, or odd
+An app which returns if a number is even
 
 ## Local development
 
