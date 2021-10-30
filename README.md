@@ -4,6 +4,8 @@ A reference project to build a React Redux app in TypeScript, and deploy to GCP 
 
 An app which returns if a number is even
 
+App URL [here](https://iseven-as-a-service-sxzla7yera-ew.a.run.app)
+
 ## Local development
 
 ```bash
