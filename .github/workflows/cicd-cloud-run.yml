@@ -41,4 +41,4 @@ jobs:
           docker push "$REGISTRY_HOSTNAME"/$PROJECT_ID/"$IMAGE":latest
       - name: Deploy
         run: |
-          gcloud run deploy ${CLOUD_RUN_SERVICE} --image "$REGISTRY_HOSTNAME/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
+          gcloud run deploy ${CLOUD_RUN_SERVICE} --image "$REGISTRY_HOSTNAME/$PROJECT_ID/$IMAGE:$GITHUB_SHA" --region europe-west1
