@@ -31,8 +31,8 @@ jobs:
       # Build the Docker image
       - name: Build
         run: |-
-          docker build --tag \
-          "$REGISTRY_HOSTNAME/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
+          docker build -t \
+          "$REGISTRY_HOSTNAME/$PROJECT_ID/$IMAGE:$GITHUB_SHA" -t \
           "$REGISTRY_HOSTNAME/$PROJECT_ID/$IMAGE:latest" .
       # Push the Docker image to Google Container Registry
       - name: Push
