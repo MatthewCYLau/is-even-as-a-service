@@ -1,5 +1,7 @@
 # Is-Even as a Service
 
+![cicd cloud run workflow](https://github.com/MatthewCYLau/is-even-as-a-service/actions/workflows/cicd-cloud-run.yml/badge.svg)
+
 A reference project to build a React Redux app in TypeScript, and deploy to GCP Cloud Run
 
 An app which returns if a number is even
