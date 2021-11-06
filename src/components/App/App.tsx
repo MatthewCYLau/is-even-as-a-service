@@ -1,7 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useMediaQuery } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { store } from "../../store";
 import useStyles from "./App.style";
@@ -10,14 +9,22 @@ import Routes from "../../config/Routes";
 import Header from "../Header";
 import HomePage from "../../pages/HomePage";
 
-const App = () => {
+export const ColorModeContext = React.createContext({
+  toggleColorMode: () => {},
+});
+
+type Props = {
+  mode: string;
+};
+
+const App: React.FunctionComponent<Props> = ({ mode }) => {
   const styles = useStyles();
 
   return (
     <Provider store={store}>
       <Router>
         <div className={styles.root}>
-          <Header />
+          <Header mode={mode} />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route component={Routes} />
@@ -29,16 +36,24 @@ const App = () => {
 };
 
 const AppWithTheme = () => {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const theme = React.useMemo(
-    () => createTheme(prefersDarkMode),
-    [prefersDarkMode]
+  const [mode, setMode] = React.useState("light");
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+      },
+    }),
+    []
   );
 
+  const theme = React.useMemo(() => createTheme(mode), [mode]);
+
   return (
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <App mode={mode} />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 };
 
