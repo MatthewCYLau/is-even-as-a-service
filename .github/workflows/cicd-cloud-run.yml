@@ -15,14 +15,13 @@ jobs:
     name: Setup, Build, and Publish
     runs-on: ubuntu-latest
     steps:
-
     - name: Checkout
       uses: actions/checkout@v2
-
-    # Setup gcloud CLI
-    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@master
       with:
-        version: '270.0.0'
+        project_id: react-gke-terraform
         service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }} 
     - run: |
         gcloud auth configure-docker
