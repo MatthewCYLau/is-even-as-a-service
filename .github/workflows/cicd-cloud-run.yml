@@ -38,7 +38,7 @@ jobs:
       - name: Push
         run: |
           docker push "$REGISTRY_HOSTNAME/$PROJECT_ID/$IMAGE:$GITHUB_SHA" 
-          docker push "$REGISTRY_HOSTNAME"/"$IMAGE":latest
+          docker push "$REGISTRY_HOSTNAME"/$PROJECT_ID/"$IMAGE":latest
       - name: Deploy
         run: |
           gcloud run deploy ${CLOUD_RUN_SERVICE} --image "$REGISTRY_HOSTNAME/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
