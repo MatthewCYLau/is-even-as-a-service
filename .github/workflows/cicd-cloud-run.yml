@@ -1,9 +1,9 @@
-name: Build and Deploy to GKE
+name: Build and Deploy to Cloud Run
 
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   PROJECT_ID: react-gke-terraform
