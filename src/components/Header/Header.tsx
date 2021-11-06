@@ -8,7 +8,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 const Header: React.FunctionComponent = () => {
-  const styles =       useStyles();
+  const styles =        useStyles();
   const context = React.useContext(ColorModeContext);
 
   return (
