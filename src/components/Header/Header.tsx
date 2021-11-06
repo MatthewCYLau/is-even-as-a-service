@@ -7,13 +7,9 @@ import useStyles from "./Header.style";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
-interface HeaderProps {
-  mode: string;
-}
-
-const Header: React.FunctionComponent<HeaderProps> = ({ mode }) => {
+const Header: React.FunctionComponent = () => {
   const styles = useStyles();
-  const colorMode = React.useContext(ColorModeContext);
+  const context = React.useContext(ColorModeContext);
 
   return (
     <AppBar component="header" position="static">
@@ -32,10 +28,10 @@ const Header: React.FunctionComponent<HeaderProps> = ({ mode }) => {
         </Button>
         <IconButton
           sx={{ ml: 1 }}
-          onClick={colorMode.toggleColorMode}
+          onClick={context.toggleColorMode}
           color="inherit"
         >
-          {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+          {context.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
       </Toolbar>
     </AppBar>

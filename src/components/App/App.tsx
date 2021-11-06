@@ -10,21 +10,18 @@ import Header from "../Header";
 import HomePage from "../../pages/HomePage";
 
 export const ColorModeContext = React.createContext({
+  mode: "",
   toggleColorMode: () => {},
 });
 
-type Props = {
-  mode: string;
-};
-
-const App: React.FunctionComponent<Props> = ({ mode }) => {
+const App: React.FunctionComponent = () => {
   const styles = useStyles();
 
   return (
     <Provider store={store}>
       <Router>
         <div className={styles.root}>
-          <Header mode={mode} />
+          <Header />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route component={Routes} />
@@ -37,21 +34,16 @@ const App: React.FunctionComponent<Props> = ({ mode }) => {
 
 const AppWithTheme = () => {
   const [mode, setMode] = React.useState("light");
-  const colorMode = React.useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-      },
-    }),
-    []
-  );
+  const toggleColorMode = () => {
+    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  };
 
   const theme = React.useMemo(() => createTheme(mode), [mode]);
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
+    <ColorModeContext.Provider value={{ mode, toggleColorMode }}>
       <ThemeProvider theme={theme}>
-        <App mode={mode} />
+        <App />
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
