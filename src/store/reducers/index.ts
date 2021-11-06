@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import isEvenReducer from './isEvenReducer';
+import { combineReducers } from "redux";
+import isEvenReducer from "./isEvenReducer";
 
 const reducers = combineReducers({
-    isEvenState: isEvenReducer,
+  isEvenState: isEvenReducer,
 });
 
 export default reducers;

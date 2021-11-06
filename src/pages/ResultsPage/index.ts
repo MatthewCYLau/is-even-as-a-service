@@ -1,3 +1,3 @@
-import ResultsPage from './ResultsPage';
+import ResultsPage from "./ResultsPage";
 
 export default ResultsPage;
