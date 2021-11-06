@@ -9,7 +9,7 @@ const NotFoundPage = () => {
     <Container component="main" maxWidth="lg" className={styles.root}>
       <img className={styles.image} src={errorImage} alt="Error" />
       <Typography variant="h5" component="p">
-        {"Oops! We couldn't find the page you were looking for!"}
+        {"Oops! We couldn't find the page you were looking for"}
       </Typography>
     </Container>
   );
