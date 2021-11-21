@@ -1,4 +1,4 @@
-# Reactg build environment
+# React build environment
 FROM node:lts as react-build
 WORKDIR /app
 COPY package*.json ./
