@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  PROJECT_ID: open-source-apps-01
+  PROJECT_ID: open-source-apps-001
   IMAGE: iseven-as-a-service
   REGISTRY_HOSTNAME: gcr.io
   CLOUD_RUN_SERVICE: iseven-as-a-service
