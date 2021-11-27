@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  PROJECT_ID: react-gke-terraform
+  PROJECT_ID: open-source-apps-01
   IMAGE: iseven-as-a-service
   REGISTRY_HOSTNAME: gcr.io
   CLOUD_RUN_SERVICE: iseven-as-a-service
@@ -24,7 +24,7 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@master
         with:
-          project_id: react-gke-terraform
+          project_id: open-source-apps-01
           service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
       - run: |
           gcloud --quiet auth configure-docker
